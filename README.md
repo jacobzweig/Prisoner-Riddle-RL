@@ -1,2 +1,2 @@
 # Prisoner-Riddle-RL
-Solution for the prisoner's riddle using DDRQN in PyTorch
+Solution for the prisoner's riddle using DDQRN-esque model using PyTorch
