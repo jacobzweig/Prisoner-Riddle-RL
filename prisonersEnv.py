@@ -118,7 +118,7 @@ class Prison:
                 # If we've gotten a non-zero reward, it's a terminal state
                 sample = Transition(self.stateLog[-1], self.actionLog[-1], None, self.rewardLog[-1])  
                 
-            loss = learner.optimize_model(sample)
+            loss = self.learner.optimize_model(sample)
             # print(loss.data.numpy())
         
         # Append to historical logs
@@ -135,19 +135,4 @@ class Prison:
             self.resetPrison()
             
         
-        
-if __name__ == "__main__":
-
-    nPrisoners = 10
-    hidden_dims = 128
-    nActions = 3
-    features = nPrisoners + nActions + 1
-    learner = dqn.learner(features, hidden_dims, nActions)
-    
-    folsom = Prison(learner, nPrisoners)
-    
-    num_episodes = 10000
-    for episode in range(num_episodes):
-        folsom.visit()
-    
         
